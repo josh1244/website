@@ -1,0 +1,131 @@
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.profile-picture-container {
+  width: 250px; /* Increased size for better visibility */
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #fff;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+}
+
+.contact-info {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 2rem;
+  user-select: none;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  gap: 1rem;
+}
+
+.info-item p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.info-item:hover {
+  color: #000;
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a90e2;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+.info-item.copied .contact-icon {
+  color: #4caf50;
+}
+
+.copied-tooltip {
+  position: absolute;
+  right: -85px;
+  background: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  margin: 0 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  animation: fadeInOut 2s ease;
+  pointer-events: none;
+}
+
+.info-item.copied {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
