@@ -5,42 +5,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import Contact from "./components/Contact";
-import GridBackground from "./components/GridBackground";
+import Navbar from "./components/Navbar";
 import "./styles/components.css";
 
 function App() {
   return (
     <Router>
-      <GridBackground />
-      <header>
-        <div className="header-content">
-          <a href="/" className="logo">
-            <img
-              src="https://placehold.co/32x32/0099ff/ffffff?text=J"
-              alt="Logo"
-              className="logo-icon"
-            />
-            <span>Joshua Ham</span>
-          </a>
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/projects">Projects</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
+      <Navbar />
       <main>
         <Routes>
           <Route path="/contact" element={<Contact />} />
