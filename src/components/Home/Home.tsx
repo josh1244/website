@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
@@ -6,7 +7,8 @@ const Home: React.FC = () => {
       <div className="content-section">
         <h2>Welcome to My Gallery</h2>
         <p>
-          Discover our collection of beautiful images and inspiring content.
+          Software Engineer specializing in full-stack development,
+          cybersecurity, and RF analysis.
         </p>
         <img
           src="https://placehold.co/800x400/0099ff/ffffff?text=Featured+Image"
@@ -26,11 +28,18 @@ const Home: React.FC = () => {
       </div>
 
       <div className="content-section">
-        <h2>Latest Work</h2>
-        <p>Explore our most recent projects and creative endeavors.</p>
+        <h2>Featured Projects</h2>
+        <p>Explore my recent work and professional contributions.</p>
+        <Link
+          to="/projects"
+          className="project-link"
+          style={{ marginBottom: "20px", fontSize: "1.1rem" }}
+        >
+          View All Projects →
+        </Link>
         <img
-          src="https://placehold.co/700x400/4ecdc4/ffffff?text=Latest+Work"
-          alt="Latest Work"
+          src="https://placehold.co/700x400/4ecdc4/ffffff?text=Featured+Projects"
+          alt="Projects Preview"
           className="centered-image"
         />
       </div>

@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
           className={`info-item ${copiedText === "phone" ? "copied" : ""}`}
           onClick={() => copyToClipboard("571-260-7117", "phone")}
         >
-          <i className="fas fa-phone contact-icon"></i>
+          <span className="contact-icon">📱</span>
           <p>571-260-7117</p>
           {copiedText === "phone" && (
             <span className="copied-tooltip">Copied!</span>
@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
           className={`info-item ${copiedText === "email" ? "copied" : ""}`}
           onClick={() => copyToClipboard("JoshuaSwainHam@proton.me", "email")}
         >
-          <i className="fas fa-envelope contact-icon"></i>
+          <span className="contact-icon">✉️</span>
           <p>JoshuaSwainHam@proton.me</p>
           {copiedText === "email" && (
             <span className="copied-tooltip">Copied!</span>
@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
             copyToClipboard("https://linkedin.com/in/joshuaham", "linkedin")
           }
         >
-          <i className="fab fa-linkedin contact-icon"></i>
+          <span className="contact-icon">🔗</span>
           <p>linkedin.com/in/joshuaham</p>
           {copiedText === "linkedin" && (
             <span className="copied-tooltip">Copied!</span>
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
             copyToClipboard("https://github.com/joshuaham", "github")
           }
         >
-          <i className="fab fa-github contact-icon"></i>
+          <span className="contact-icon">💻</span>
           <p>github.com/joshuaham</p>
           {copiedText === "github" && (
             <span className="copied-tooltip">Copied!</span>
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             copyToClipboard("https://joshuaham.vercel.app", "website")
           }
         >
-          <i className="fas fa-globe contact-icon"></i>
+          <span className="contact-icon">🌐</span>
           <p>joshuaham.vercel.app</p>
           {copiedText === "website" && (
             <span className="copied-tooltip">Copied!</span>

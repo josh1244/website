@@ -80,13 +80,11 @@
 }
 
 .contact-icon {
-  font-size: 1.2rem;
-  width: 24px;
-  height: 24px;
+  font-size: 1.5rem;
+  min-width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4a90e2;
   transition: transform 0.3s ease;
 }
 
@@ -94,8 +92,8 @@
   transform: scale(1.1);
 }
 
-.info-item.copied .contact-icon {
-  color: #4caf50;
+.info-item.copied {
+  background: rgba(76, 175, 80, 0.1);
 }
 
 .copied-tooltip {
@@ -111,10 +109,6 @@
   pointer-events: none;
 }
 
-.info-item.copied {
-  background: rgba(76, 175, 80, 0.1);
-}
-
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -127,5 +121,29 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .profile-picture-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contact-info {
+    padding: 1.5rem;
+  }
+
+  .info-item {
+    font-size: 1rem;
+  }
+
+  .copied-tooltip {
+    right: -65px;
+    font-size: 0.7rem;
   }
 }

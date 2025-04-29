@@ -72,6 +72,10 @@
   align-items: flex-end;
 }
 
+.right-column .experience-item .section-header {
+  margin-top: 0;
+}
+
 .right-column .section-header h2 {
   color: #333;
   margin: 0;
@@ -87,6 +91,10 @@
   font-weight: normal;
   font-size: 9pt;
   line-height: 1;
+}
+
+.right-column .experience-item .section-header .date {
+  margin-bottom: 0;
 }
 
 /* Right column section headers type 2 */

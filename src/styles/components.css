@@ -2,7 +2,7 @@
 :root {
   --primary-color: #0099ff;
   --background-color: #fafaf0;
-  --background-color2: #fff8e6; /* Changed to a warmer, creamier tone */
+  --background-color2: #fff8e6; /* Warmer, creamier tone */
   --surface-color: #f5f2eb;
   --text-color: #2c2c2c;
   --text-secondary: #666666;
@@ -10,12 +10,6 @@
   --max-width: 1200px;
   --header-height: 64px;
   --content-spacing: 6rem;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 /* Prevent text selection on navbar elements */
@@ -31,27 +25,7 @@ nav li {
   -ms-user-select: none;
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
   background-image: 
     /* Major grid lines */ linear-gradient(
       rgba(0, 153, 255, 0.12) 1.5px,
@@ -68,17 +42,9 @@ body {
         var(--background-color2) 50%,
         var(--background-color) 100%
       );
-  background-size: 50px 50px,
-    /* Major grid lines - increased from 40px */ 50px 50px, 12.5px 12.5px,
-    /* Minor grid lines - increased from 10px */ 12.5px 12.5px, 100% 100%; /* Background gradient */
+  background-size: 50px 50px, 50px 50px, 12.5px 12.5px, 12.5px 12.5px, 100% 100%;
   background-position: -0.75px -0.75px, -0.75px -0.75px, -0.5px -0.5px,
     -0.5px -0.5px, 0 0;
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  animation: subtle-shift 120s infinite alternate linear;
 }
 
 @keyframes subtle-shift {
@@ -281,4 +247,29 @@ main {
   color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 1.5rem 16px;
+  }
+
+  .centered-image {
+    border-radius: 12px;
+  }
 }

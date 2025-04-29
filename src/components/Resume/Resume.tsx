@@ -3,7 +3,6 @@ import "./Resume.css";
 
 const Resume: React.FC = () => {
   const resumeRef = useRef<HTMLDivElement>(null);
-  // State to track if we're in the browser
   const [isBrowser, setIsBrowser] = useState(false);
 
   // Check if we're in the browser environment

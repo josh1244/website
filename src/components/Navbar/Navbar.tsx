@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
@@ -15,41 +15,41 @@ const Navbar: React.FC = () => {
   return (
     <header>
       <div className="header-content">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img
             src="https://placehold.co/32x32/0099ff/ffffff?text=J"
             alt="Logo"
             className="logo-icon"
           />
           <span>Joshua Ham</span>
-        </a>
+        </Link>
         <nav>
           <ul>
             <li>
-              <a href="/" className={isActive("/") ? "active" : ""}>
+              <Link to="/" className={isActive("/") ? "active" : ""}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className={isActive("/about") ? "active" : ""}>
+              <Link to="/about" className={isActive("/about") ? "active" : ""}>
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/projects"
+              <Link
+                to="/projects"
                 className={isActive("/projects") ? "active" : ""}
               >
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className={isActive("/contact") ? "active" : ""}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
