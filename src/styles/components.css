@@ -2,7 +2,7 @@
 :root {
   --primary-color: #0099ff;
   --background-color: #fafaf0;
-  --background-color2: #ffffe5;
+  --background-color2: #fff8e6; /* Changed to a warmer, creamier tone */
   --surface-color: #f5f2eb;
   --text-color: #2c2c2c;
   --text-secondary: #666666;
@@ -52,21 +52,44 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
-  background-image: linear-gradient(
-      rgba(0, 153, 255, 0.05) 1px,
-      transparent 1px
+  background-image: 
+    /* Major grid lines */ linear-gradient(
+      rgba(0, 153, 255, 0.12) 1.5px,
+      transparent 1.5px
     ),
+    linear-gradient(90deg, rgba(0, 153, 255, 0.12) 1.5px, transparent 1.5px),
+    /* Minor grid lines */
+      linear-gradient(rgba(0, 153, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 153, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(
-      to bottom,
-      var(--background-color) 0%,
-      var(--background-color2) 100%
-    );
-  background-size: 30px 30px, 30px 30px, 100% 100%;
+    /* Soft gradient background */
+      linear-gradient(
+        to bottom right,
+        var(--background-color) 0%,
+        var(--background-color2) 50%,
+        var(--background-color) 100%
+      );
+  background-size: 50px 50px,
+    /* Major grid lines - increased from 40px */ 50px 50px, 12.5px 12.5px,
+    /* Minor grid lines - increased from 10px */ 12.5px 12.5px, 100% 100%; /* Background gradient */
+  background-position: -0.75px -0.75px, -0.75px -0.75px, -0.5px -0.5px,
+    -0.5px -0.5px, 0 0;
   min-height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
+  animation: subtle-shift 120s infinite alternate linear;
+}
+
+@keyframes subtle-shift {
+  from {
+    background-position: -0.75px -0.75px, -0.75px -0.75px, -0.5px -0.5px,
+      -0.5px -0.5px, 0 0;
+  }
+  to {
+    background-position: -25px -25px, -25px -25px, -6.25px -6.25px,
+      -6.25px -6.25px, 0 0;
+  }
 }
 
 /* Layout */
@@ -79,6 +102,16 @@ body {
   flex-direction: column;
   align-items: center;
   gap: var(--content-spacing);
+}
+
+/* Main Content */
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: calc(var(--header-height) + 2rem);
 }
 
 .content-section {
@@ -130,16 +163,6 @@ body {
   max-width: 600px;
 }
 
-/* Main Content */
-main {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: calc(var(--header-height) + 2rem);
-}
-
 .centered-image {
   max-width: 100%;
   height: auto;
@@ -182,7 +205,7 @@ main {
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
 }
 

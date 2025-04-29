@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import USCCB from "./USCCB.webp";
 
 interface Project {
   title: string;
@@ -15,7 +16,7 @@ const projects: Project[] = [
     title: "USCCB Scriptos App",
     description:
       "A custom application for the US Conference of Catholic Bishops, featuring PDF system integration, email notifications, and secure cloud storage. Built with modern web technologies and a focus on user experience.",
-    imageUrl: "https://placehold.co/800x400/003366/ffffff?text=USCCB+Scriptos",
+    imageUrl: USCCB,
     technologies: [
       "React",
       "TypeScript",
