@@ -17,8 +17,8 @@ const Resume: React.FC = () => {
 
     try {
       // Dynamically import html2pdf only when the button is clicked
-      const html2pdf = (await import('html2pdf.js')).default;
-      
+      const html2pdf = (await import("html2pdf.js")).default;
+
       const currentDate = new Date();
       const formattedDate = `${
         currentDate.getMonth() + 1
@@ -219,13 +219,15 @@ const Resume: React.FC = () => {
               <h2>WORK EXPERIENCE</h2>
             </div>
             <div className="experience-item">
-              <h3>Tech Tutor and Assistant</h3>
-              <p className="date">August 2023 – Present</p>
+              <div className="section-header">
+                <h3>Tech Tutor and Assistant</h3>
+                <p className="date">August 2023 – Present</p>
+              </div>
               <p className="company">
                 Franciscan University of Steubenville | Steubenville, OH 43952
               </p>
               <ul>
-                <li>
+                <li style={{ color: "#737373" }}>
                   Maintained a cybersecurity lab, taught students ethical
                   hacking tools, and repaired computers with hardware and
                   software issues
@@ -234,13 +236,15 @@ const Resume: React.FC = () => {
             </div>
 
             <div className="experience-item">
-              <h3>Entrepreneur</h3>
-              <p className="date">July 2021 – January 2024</p>
+              <div className="section-header">
+                <h3>Entrepreneur</h3>
+                <p className="date">July 2021 – January 2024</p>
+              </div>
               <p className="company">
                 Josh's Ice Cream Business | Manassas, VA 20112
               </p>
               <ul>
-                <li>
+                <li style={{ color: "#737373" }}>
                   Established my own ice cream business and sold my custom-made
                   products at Giorgio's Family Restaurant and to various other
                   customers
@@ -249,13 +253,15 @@ const Resume: React.FC = () => {
             </div>
 
             <div className="experience-item">
-              <h3>Restaurant Staff</h3>
-              <p className="date">July 2020 – January 2024</p>
+              <div className="section-header">
+                <h3>Restaurant Staff</h3>
+                <p className="date">July 2020 – January 2024</p>
+              </div>
               <p className="company">
                 Giorgio's Family Restaurant | Montclair, VA 22025
               </p>
               <ul>
-                <li>
+                <li style={{ color: "#737373" }}>
                   Performed bussing, cashiering, food running, dishwashing, and
                   cooking in addition to training the new employees
                 </li>
