@@ -87,11 +87,13 @@ const About: React.FC = () => {
               className="project-image"
             />
             <div className="project-content">
-              <h3>Software Developer</h3>
+              <div className="experience-header">
+                <h3>Software Developer</h3>
+                <span className="date-badge">May 2024 – Present</span>
+              </div>
               <p className="company">
                 Air Force Research Lab and University of Dayton | Fairborn, OH
               </p>
-              <p className="date">May 2024 – Present</p>
               <div className="achievements">
                 <div className="achievement-item">
                   ⚡ Improved CAD model tool performance with 5x speed increase
@@ -119,11 +121,13 @@ const About: React.FC = () => {
               className="project-image"
             />
             <div className="project-content">
-              <h3>Software Engineer</h3>
+              <div className="experience-header">
+                <h3>Software Engineer</h3>
+                <span className="date-badge">August 2024 – Present</span>
+              </div>
               <p className="company">
                 Franciscan University of Steubenville | Steubenville, OH
               </p>
-              <p className="date">August 2024 – Present</p>
               <div className="achievements">
                 <div className="achievement-item">
                   🖥️ Developing custom app for US Conference of Catholic Bishops
