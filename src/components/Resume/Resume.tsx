@@ -1,29 +1,42 @@
-import React, { useRef } from "react";
-import html2pdf from "html2pdf.js";
+import React, { useRef, useEffect, useState } from "react";
 import "./Resume.css";
 
 const Resume: React.FC = () => {
   const resumeRef = useRef<HTMLDivElement>(null);
+  // State to track if we're in the browser
+  const [isBrowser, setIsBrowser] = useState(false);
 
-  const handleDownloadPDF = () => {
+  // Check if we're in the browser environment
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
+  const handleDownloadPDF = async () => {
     const element = resumeRef.current;
-    if (!element) return;
+    if (!element || !isBrowser) return;
 
-    const currentDate = new Date();
-    const formattedDate = `${
-      currentDate.getMonth() + 1
-    }-${currentDate.getDate()}-${currentDate.getFullYear()}`; // Format date as M-D-YYYY
-    const opt = {
-      filename: `Joshua Ham - Resume - ${formattedDate}.pdf`,
-      image: { type: "png", quality: 1.0 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-      enableLinks: true,
-      html2canvas: {
-        scale: 2,
-      },
-    };
+    try {
+      // Dynamically import html2pdf only when the button is clicked
+      const html2pdf = (await import('html2pdf.js')).default;
+      
+      const currentDate = new Date();
+      const formattedDate = `${
+        currentDate.getMonth() + 1
+      }-${currentDate.getDate()}-${currentDate.getFullYear()}`; // Format date as M-D-YYYY
+      const opt = {
+        filename: `Joshua Ham - Resume - ${formattedDate}.pdf`,
+        image: { type: "png", quality: 1.0 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        enableLinks: true,
+        html2canvas: {
+          scale: 2,
+        },
+      };
 
-    html2pdf().set(opt).from(element).save();
+      html2pdf().set(opt).from(element).save();
+    } catch (error) {
+      console.error("Error loading html2pdf or generating PDF:", error);
+    }
   };
 
   return (
