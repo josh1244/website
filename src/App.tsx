@@ -11,9 +11,13 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Scriptos from "./components/Scriptos/Scriptos";
 import Resume from "./components/Resume/Resume";
+import useNonDraggableElements from "./hooks/useNonDraggableElements";
 import "./styles/components.css";
 
 function App() {
+  // Use the custom hook to make elements non-draggable
+  useNonDraggableElements();
+
   return (
     <Router>
       <Navbar />

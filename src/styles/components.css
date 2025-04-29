@@ -12,6 +12,48 @@
   --content-spacing: 6rem;
 }
 
+/* Make all images non-draggable */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+}
+
+/* Make buttons non-draggable */
+button {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Make links and navbar elements non-draggable */
+a,
+Link,
+nav a,
+.logo,
+.header-content,
+header * {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 /* Prevent text selection on navbar elements */
 header,
 header a,
@@ -136,7 +178,6 @@ main {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
