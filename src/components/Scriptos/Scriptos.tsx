@@ -15,7 +15,7 @@ const Scriptos: React.FC = () => {
       <div className="project-detail">
         <img
           src="https://placehold.co/1200x600/003366/ffffff?text=Scriptos+Dashboard"
-          alt="Scriptos Dashboard "
+          alt="Scriptos Dashboard"
           className="project-hero-image"
         />
 

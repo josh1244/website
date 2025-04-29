@@ -4,7 +4,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <div className="content-section">
-        <h2>Welcome to Our Gallery</h2>
+        <h2>Welcome to My Gallery</h2>
         <p>
           Discover our collection of beautiful images and inspiring content.
         </p>
