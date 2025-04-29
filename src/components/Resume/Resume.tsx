@@ -36,15 +36,26 @@ const Resume: React.FC = () => {
             <h2>EDUCATION</h2>
           </div>
           <div className="education-item">
-            <h3>Bachelor of Science in Software Engineering</h3>
-            <p className="concentration">Concentration in Cybersecurity</p>
-            <p className="university-info">
+            <h3 style={{ lineHeight: 1.0, paddingBottom: "1pt" }}>
+              Bachelor of Science in Software Engineering
+            </h3>
+            <p
+              style={{ lineHeight: 1.0, paddingBottom: "6pt" }}
+              className="concentration"
+            >
+              Concentration in Cybersecurity
+            </p>
+            <p style={{ lineHeight: 0.1 }} className="university-info">
               Franciscan University of Steubenville
             </p>
-            <p className="university-info">Steubenville, OH 43952</p>
-            <div className="education-date-gpa">
+            <p style={{ lineHeight: 1.9 }} className="university-info">
+              Steubenville, OH 43952
+            </p>
+            <div style={{ lineHeight: 0.1 }} className="education-date-gpa">
               <span>August 2022 – December 2025</span>
-              <span>GPA: 3.93</span>
+              <span>
+                <b>GPA:</b> 3.93
+              </span>
             </div>
           </div>
         </div>
@@ -86,7 +97,7 @@ const Resume: React.FC = () => {
             promoted to a year-round position based on completing assigned
             project within 50% of timeline. My accomplishments include:
           </p>
-          <ul>
+          <ul style={{ margin: 0, color: "#737373" }}>
             <li>
               Improving CAD model tool performance by achieving 5x speed
               increase and introducing additional functionalities that were
@@ -125,7 +136,7 @@ const Resume: React.FC = () => {
             Catholic Bishops to streamline the process of reviewing books and
             granting imprimaturs. My contributions include:
           </p>
-          <ul>
+          <ul style={{ margin: 0, color: "#737373" }}>
             <li>
               Creating a custom PDF and comment system, email notifications,
               software testing pipeline, secure cloud database and file storage
