@@ -1,0 +1,115 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content-section {
+  margin-bottom: 4rem;
+}
+
+.centered-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #0099ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #007acc;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skill-group {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.skill-group h4 {
+  color: #0099ff;
+  margin: 0 0 0.5rem 0;
+}
+
+.skill-group p {
+  margin: 0;
+  color: #666;
+  line-height: 1.4;
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-card {
+  margin-bottom: 0 !important;
+}
+
+.achievements {
+  margin-top: 1rem;
+}
+
+.achievement-item {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.company {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}

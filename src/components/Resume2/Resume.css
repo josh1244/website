@@ -1,0 +1,160 @@
+.resume-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+}
+
+.resume-header {
+  margin-bottom: 1rem;
+}
+
+.resume-header h1 {
+  color: #333;
+  margin: 0;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header {
+  background-color: #4a4a4a;
+  padding: 0.3rem 0.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.section-header h2 {
+  color: white;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item span {
+  font-size: 1rem;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.contact-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+.education-item,
+.experience-item {
+  margin-bottom: 1rem;
+}
+
+.education-item h3,
+.experience-item h3 {
+  color: #333;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.education-item p,
+.experience-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.date {
+  float: right;
+  color: #333;
+}
+
+.gpa {
+  float: right;
+  clear: right;
+  color: #333;
+}
+
+.company {
+  margin-top: 0.2rem;
+}
+
+ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.skills-list {
+  columns: 2;
+  column-gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.skills-list li {
+  margin-bottom: 0.2rem;
+  break-inside: avoid;
+}
+
+@media print {
+  .resume-container {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  body {
+    background: white;
+  }
+
+  @page {
+    margin: 0.5in;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .date,
+  .gpa {
+    float: none;
+    margin-top: 0.2rem;
+  }
+
+  .skills-list {
+    columns: 1;
+  }
+}

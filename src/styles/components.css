@@ -1,7 +1,8 @@
 /* Base styles */
 :root {
   --primary-color: #0099ff;
-  --background-color: #faf9f6;
+  --background-color: #fafaf0;
+  --background-color2: #ffffe5;
   --surface-color: #f5f2eb;
   --text-color: #2c2c2c;
   --text-secondary: #666666;
@@ -15,6 +16,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Prevent text selection on navbar elements */
+header,
+header a,
+header span,
+nav,
+nav ul,
+nav li {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 html,
@@ -42,8 +56,13 @@ body {
       rgba(0, 153, 255, 0.05) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(0, 153, 255, 0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
+    linear-gradient(90deg, rgba(0, 153, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--background-color) 0%,
+      var(--background-color2) 100%
+    );
+  background-size: 30px 30px, 30px 30px, 100% 100%;
   min-height: 100vh;
   width: 100%;
   margin: 0;
@@ -136,4 +155,107 @@ main {
 .centered-image:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 1rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-content h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tech-tag {
+  background: rgba(0, 153, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  transform: translateX(5px);
+  color: var(--text-color);
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skill-group {
+  text-align: center;
+}
+
+.skill-group h4 {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.skill-group p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
 }
