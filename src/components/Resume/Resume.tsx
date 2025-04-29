@@ -16,26 +16,41 @@ const Resume: React.FC = () => {
     if (!element || !isBrowser) return;
 
     try {
-      // Dynamically import html2pdf only when the button is clicked
-      const html2pdf = (await import("html2pdf.js")).default;
+      // Dynamically import jsPDF and html2canvas
+      const { jsPDF } = await import("jspdf");
+      const html2canvas = (await import("html2canvas")).default;
 
       const currentDate = new Date();
       const formattedDate = `${
         currentDate.getMonth() + 1
       }-${currentDate.getDate()}-${currentDate.getFullYear()}`; // Format date as M-D-YYYY
-      const opt = {
-        filename: `Joshua Ham - Resume - ${formattedDate}.pdf`,
-        image: { type: "png", quality: 1.0 },
-        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-        enableLinks: true,
-        html2canvas: {
-          scale: 2,
-        },
-      };
 
-      html2pdf().set(opt).from(element).save();
+      // Create a new jsPDF instance
+      const pdf = new jsPDF({
+        unit: "in",
+        format: "letter",
+        orientation: "portrait",
+      });
+
+      // Convert the HTML element to canvas
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        logging: false,
+        useCORS: true,
+      });
+
+      // Calculate dimensions to fit the content properly
+      const imgWidth = 8.5; // Letter size width in inches
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // Add the image to the PDF
+      const imgData = canvas.toDataURL("image/png");
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      // Save the PDF
+      pdf.save(`Joshua Ham - Resume - ${formattedDate}.pdf`);
     } catch (error) {
-      console.error("Error loading html2pdf or generating PDF:", error);
+      console.error("Error generating PDF:", error);
     }
   };
 
