@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import profilePicture from "../../assets/profile.jpg";
+import profilePicture from "./profile.jpg";
 
 const Contact: React.FC = () => {
   const [copiedText, setCopiedText] = useState<string | null>(null);

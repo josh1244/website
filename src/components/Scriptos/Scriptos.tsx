@@ -1,7 +1,7 @@
 import React from "react";
 import Scriptos_Home from "./Scriptos Home.png";
 import Scriptos_Login from "./Scriptos Login.png";
-import USCCB_Logo from "../../assets/usccb.png";
+import USCCB_Logo from "./usccb.png";
 import "./Scriptos.css";
 
 const Scriptos: React.FC = () => {
