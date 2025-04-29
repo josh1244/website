@@ -1,7 +1,14 @@
+// Projects: Portfolio Page
+
+// Imports
 import React from "react";
 import { Link } from "react-router-dom";
+
+// Images
 import USCCB from "./USCCB.webp";
 
+// Project variable declaration
+// This is a TypeScript interface that defines the structure of a project object.
 interface Project {
   title: string;
   description: string;
@@ -11,6 +18,7 @@ interface Project {
   internalLink?: string;
 }
 
+// Array of projects
 const projects: Project[] = [
   {
     title: "USCCB Scriptos App",
@@ -58,6 +66,7 @@ const projects: Project[] = [
 const Projects: React.FC = () => {
   return (
     <div className="container">
+      {/* Introduction */}
       <div className="content-section">
         <h2>Portfolio</h2>
         <p>
@@ -66,6 +75,7 @@ const Projects: React.FC = () => {
         </p>
       </div>
 
+      {/* Map Projects into cards */}
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card">

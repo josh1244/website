@@ -1,9 +1,13 @@
+// Home Page
+
+// Imports
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
     <div className="container">
+      {/* Welcome */}
       <div className="content-section">
         <h2>Welcome to My Gallery</h2>
         <p>
@@ -17,6 +21,7 @@ const Home: React.FC = () => {
         />
       </div>
 
+      {/* Vision */}
       <div className="content-section">
         <h2>Our Vision</h2>
         <p>Creating beautiful experiences through visual storytelling.</p>
@@ -27,6 +32,7 @@ const Home: React.FC = () => {
         />
       </div>
 
+      {/* Projects */}
       <div className="content-section">
         <h2>Featured Projects</h2>
         <p>Explore my recent work and professional contributions.</p>

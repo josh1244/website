@@ -1,5 +1,11 @@
+// About Page
+
+// Imports
 import React from "react";
 import { Link } from "react-router-dom";
+import "./About.css";
+
+// Images
 import AFRL_banner from "./afrl_word_mark.png";
 import Franciscan from "./franciscan_university.png";
 import computer from "./IMG_20230528_123525.jpg";
@@ -7,6 +13,8 @@ import computer from "./IMG_20230528_123525.jpg";
 const About: React.FC = () => {
   return (
     <div className="container">
+      {/* About Me */}
+      {/* Click on image to go to resume page */}
       <div className="content-section">
         <h2>About Me</h2>
         <p>
@@ -27,6 +35,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
+      {/* Skills */}
       <div className="content-section">
         <h2>Skills & Expertise</h2>
         <div className="projects-grid">
@@ -76,6 +85,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
+      {/* Experience */}
       <div className="content-section">
         <h2>Professional Experience</h2>
         <div className="experience-container">

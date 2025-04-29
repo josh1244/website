@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+// Contact Page
+
+// Imports
+import React from "react";
 import "./Contact.css";
+import useClipboard from "../../hooks/useClipboard";
+
+// Images
 import profilePicture from "./profile.jpg";
 
 const Contact: React.FC = () => {
-  const [copiedText, setCopiedText] = useState<string | null>(null);
-
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedText(label);
-      setTimeout(() => setCopiedText(null), 2000);
-    });
-  };
+  // Custom hook for copying text to clipboard
+  const { copiedText, copyToClipboard } = useClipboard();
 
   return (
     <div className="contact-container">
+      {/* Profile Image */}
       <div className="profile-section">
         <div className="profile-picture-container">
           <img
@@ -23,6 +24,8 @@ const Contact: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* Contact Info */}
       <div className="contact-info">
         <h2>Contact Information</h2>
         <div

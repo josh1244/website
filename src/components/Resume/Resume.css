@@ -12,6 +12,7 @@
   grid-template-columns: 3.05in auto;
   gap: 0in;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+  border-radius: 16px; /* Adding rounded corners */
 }
 
 .left-column {
@@ -86,14 +87,14 @@
   line-height: 1;
 }
 
-.right-column .section-header .date {
+.right-column .section-header .resume-date {
   position: static;
   font-weight: normal;
   font-size: 9pt;
   line-height: 1;
 }
 
-.right-column .experience-item .section-header .date {
+.right-column .experience-item .section-header .resume-date {
   margin-bottom: 0;
 }
 
@@ -209,7 +210,7 @@
   color: #333;
 }
 
-.date {
+.resume-date {
   position: absolute;
   right: 0;
   top: 0;
@@ -329,7 +330,7 @@
     padding-right: 0;
   }
 
-  .date,
+  .resume-date,
   .gpa {
     position: static;
     text-align: left;

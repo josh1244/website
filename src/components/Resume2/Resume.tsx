@@ -52,7 +52,7 @@ const Resume: React.FC = () => {
             <p>Concentration in Cybersecurity</p>
             <p>Franciscan University of Steubenville</p>
             <p>Steubenville, OH 43952</p>
-            <p className="date">August 2022 – December 2025</p>
+            <p className="resume-date">August 2022 – December 2025</p>
             <p className="gpa">GPA: 3.93</p>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Resume: React.FC = () => {
             <h2>SOFTWARE DEVELOPER</h2>
           </div>
           <div className="experience-item">
-            <p className="date">May 2024 – Present</p>
+            <p className="resume-date">May 2024 – Present</p>
             <p className="company">
               Air Force Research Lab and University of Dayton | Fairborn, OH
               45324
@@ -127,7 +127,7 @@ const Resume: React.FC = () => {
             <h2>SOFTWARE ENGINEER</h2>
           </div>
           <div className="experience-item">
-            <p className="date">August 2024 – Present</p>
+            <p className="resume-date">August 2024 – Present</p>
             <p className="company">
               Franciscan University of Steubenville | Steubenville, OH 43952
             </p>
@@ -176,7 +176,7 @@ const Resume: React.FC = () => {
           </div>
           <div className="experience-item">
             <h3>Tech Tutor and Assistant</h3>
-            <p className="date">August 2023 – Present</p>
+            <p className="resume-date">August 2023 – Present</p>
             <p className="company">
               Franciscan University of Steubenville | Steubenville, OH 43952
             </p>
@@ -190,7 +190,7 @@ const Resume: React.FC = () => {
 
           <div className="experience-item">
             <h3>Entrepreneur</h3>
-            <p className="date">July 2021 – January 2024</p>
+            <p className="resume-date">July 2021 – January 2024</p>
             <p className="company">
               Josh's Ice Cream Business | Manassas, VA 20112
             </p>
@@ -205,7 +205,7 @@ const Resume: React.FC = () => {
 
           <div className="experience-item">
             <h3>Restaurant Staff</h3>
-            <p className="date">July 2020 – January 2024</p>
+            <p className="resume-date">July 2020 – January 2024</p>
             <p className="company">
               Giorgio's Family Restaurant | Montclair, VA 22025
             </p>

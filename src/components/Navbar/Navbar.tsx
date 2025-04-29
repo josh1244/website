@@ -1,8 +1,12 @@
+// Navbar Component
+
+// Imports
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
+  // Check location to highlight active link
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -12,9 +16,18 @@ const Navbar: React.FC = () => {
     return location.pathname.includes(path);
   };
 
+  // Define the naviagation links
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/projects", label: "Projects" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
     <header>
       <div className="header-content">
+        {/* Logo and Name */}
         <Link to="/" className="logo">
           <img
             src="https://placehold.co/32x32/0099ff/ffffff?text=J"
@@ -23,34 +36,20 @@ const Navbar: React.FC = () => {
           />
           <span>Joshua Ham</span>
         </Link>
+
+        {/* Nav links */}
         <nav>
           <ul>
-            <li>
-              <Link to="/" className={isActive("/") ? "active" : ""}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className={isActive("/about") ? "active" : ""}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/projects"
-                className={isActive("/projects") ? "active" : ""}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className={isActive("/contact") ? "active" : ""}
-              >
-                Contact
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className={isActive(link.to) ? "active" : ""}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
