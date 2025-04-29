@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AFRL_banner from "./afrl_word_mark.png";
+import Franciscan from "./franciscan_university.png";
+import computer from "./IMG_20230528_123525.jpg";
 
 const About: React.FC = () => {
   return (
@@ -13,16 +16,15 @@ const About: React.FC = () => {
           Cybersecurity at Franciscan University of Steubenville, maintaining a
           3.93 GPA.
         </p>
-        <div className="cta-section">
-          <Link to="/resume" className="resume-button">
-            View My Resume
+        <div className="image-container">
+          <Link to="/resume">
+            <img
+              src="https://placehold.co/600x400/0099ff/ffffff?text=About+Me"
+              alt="About Me"
+              className="centered-image"
+            />
           </Link>
         </div>
-        <img
-          src="https://placehold.co/600x400/0099ff/ffffff?text=About+Me"
-          alt="About Me"
-          className="centered-image"
-        />
       </div>
 
       <div className="content-section">
@@ -30,7 +32,7 @@ const About: React.FC = () => {
         <div className="projects-grid">
           <div className="project-card">
             <img
-              src="https://placehold.co/800x400/0099ff/ffffff?text=Technical+Skills"
+              src={computer}
               alt="Technical Skills"
               className="project-image"
             />
@@ -82,9 +84,10 @@ const About: React.FC = () => {
             style={{ marginBottom: "2rem" }}
           >
             <img
-              src="https://placehold.co/800x400/003875/ffffff?text=Air+Force+Research+Lab"
+              src={AFRL_banner}
               alt="Air Force Research Lab"
               className="project-image"
+              style={{ paddingLeft: "20px", paddingRight: "20px" }}
             />
             <div className="project-content">
               <div className="experience-header">
@@ -116,7 +119,7 @@ const About: React.FC = () => {
 
           <div className="project-card experience-card">
             <img
-              src="https://placehold.co/800x400/003366/ffffff?text=Franciscan+University"
+              src={Franciscan}
               alt="Franciscan University"
               className="project-image"
             />
