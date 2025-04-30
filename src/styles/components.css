@@ -294,6 +294,7 @@ main {
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .content-section h2 {
@@ -302,15 +303,33 @@ main {
 
   .content-section p {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .project-card {
+    margin-bottom: 0.5rem;
+  }
+
+  .project-content {
+    padding: 1rem;
   }
 }
 
 @media (max-width: 576px) {
   .container {
-    padding: 1.5rem 16px;
+    padding: 1rem 16px;
+    gap: 1.5rem;
   }
 
   .centered-image {
     border-radius: 12px;
+  }
+
+  .projects-grid {
+    gap: 1rem;
   }
 }

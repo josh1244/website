@@ -103,6 +103,7 @@
 
 .feature-box h4 {
   color: #2c3e50;
+  margin-top: 0;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
 }
@@ -150,6 +151,7 @@
 
 .process-box h4 {
   color: #2c3e50;
+  margin-top: 0;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
 }
@@ -184,17 +186,18 @@
 
 .stakeholders-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 .stakeholder-card {
   background-color: #f8f9fa;
   border-radius: 8px;
-  padding: 1.2rem;
+  padding: 1.5rem;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border-bottom: 3px solid #0099ff;
+  margin-bottom: 0;
 }
 
 .stakeholder-card:hover {
@@ -270,6 +273,7 @@
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+  margin-top: 0;
   margin-bottom: 0.8rem;
   color: #2c3e50;
 }
@@ -417,8 +421,11 @@
 
 @media (max-width: 768px) {
   .feature-columns,
-  .process-columns {
+  .process-columns,
+  .stakeholders-grid,
+  .feature-grid {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
 
   .client-info {
@@ -433,14 +440,24 @@
 
   .feature-box,
   .process-box,
-  .stakeholder-card {
+  .stakeholder-card,
+  .feature-item {
     padding: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .features-section,
   .process-section,
   .stakeholders-section,
-  .client-section {
-    padding: 1.5rem;
+  .client-section,
+  .project-overview-card,
+  .tech-stack-section,
+  .auth-section {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-tags {
+    gap: 0.5rem;
   }
 }

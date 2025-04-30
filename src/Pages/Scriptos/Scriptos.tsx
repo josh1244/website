@@ -41,8 +41,8 @@ const Scriptos: React.FC = () => {
               Digital DoC System
             </h4>
             <p>
-              Digital Declaration of Conformity (DoC) issuance for manuscripts
-              through a centralized workflow
+              An ability to give a Digital Declaration of Conformity (DoC) to
+              manuscripts
             </p>
           </div>
           <div className="feature-item">
@@ -51,8 +51,8 @@ const Scriptos: React.FC = () => {
               Automated Workflow
             </h4>
             <p>
-              Streamlined process automation replacing manual email-based
-              reviews with structured digital steps
+              Automate a process that was previously manually facilitated by
+              email threads
             </p>
           </div>
           <div className="feature-item">
@@ -61,8 +61,7 @@ const Scriptos: React.FC = () => {
               Secure Repository
             </h4>
             <p>
-              Access-controlled, encrypted storage with logical separation of
-              publisher data
+              Collection and Secure Storage of Documents and their annotations
             </p>
           </div>
           <div className="feature-item">
@@ -70,10 +69,21 @@ const Scriptos: React.FC = () => {
               <span className="feature-icon">👥</span>
               User Management
             </h4>
-            <p>
-              Comprehensive system for managing publishers, consultants, and
-              administrators
-            </p>
+            <p>Interact with Users, Proposals, Projects, Summaries</p>
+          </div>
+          <div className="feature-item">
+            <h4>
+              <span className="feature-icon">🛠️</span>
+              Custom Framework
+            </h4>
+            <p>Turn documentation & basic code into a custom-built framework</p>
+          </div>
+          <div className="feature-item">
+            <h4>
+              <span className="feature-icon">📝</span>
+              Documentation
+            </h4>
+            <p>IEEE standardized documentation</p>
           </div>
         </div>
       </div>
