@@ -27,6 +27,46 @@ const usePDFDownload = ({ resumeRef }: UsePDFDownloadProps) => {
       const { jsPDF } = await import("jspdf");
       const html2canvas = (await import("html2canvas")).default;
 
+      // Store all links and their data to restore later
+      const links = element.querySelectorAll("a");
+      const linkData = Array.from(links).map((link) => ({
+        element: link,
+        href: link.getAttribute("href"),
+        target: link.getAttribute("target"),
+        style: link.getAttribute("style"),
+        hasUnderline: window
+          .getComputedStyle(link)
+          .textDecoration.includes("underline"),
+      }));
+
+      // Create a deep clone of the element to modify for PDF creation
+      const tempElement = element.cloneNode(true) as HTMLElement;
+      document.body.appendChild(tempElement);
+      tempElement.style.position = "absolute";
+      tempElement.style.left = "-9999px";
+      tempElement.style.top = "-9999px";
+
+      // Fix contact icons in the cloned element
+      const contactIcons = tempElement.querySelectorAll(".contact-icon");
+      contactIcons.forEach((icon) => {
+        const htmlIcon = icon as HTMLElement;
+        htmlIcon.style.width = "16px";
+        htmlIcon.style.height = "16px";
+        htmlIcon.style.display = "inline-block";
+        htmlIcon.style.objectFit = "contain";
+        htmlIcon.style.verticalAlign = "middle";
+        htmlIcon.style.marginRight = "8px";
+      });
+
+      // Convert links to plain text in the cloned element
+      const clonedLinks = tempElement.querySelectorAll("a");
+      clonedLinks.forEach((link) => {
+        link.removeAttribute("href");
+        link.removeAttribute("target");
+        link.style.textDecoration = "none";
+        link.style.color = "inherit";
+      });
+
       const currentDate = new Date();
       const formattedDate = `${
         currentDate.getMonth() + 1
@@ -39,11 +79,40 @@ const usePDFDownload = ({ resumeRef }: UsePDFDownloadProps) => {
         orientation: "portrait",
       });
 
-      // Convert the HTML element to canvas
-      const canvas = await html2canvas(element, {
-        scale: 2,
+      // Convert the cloned HTML element to canvas with improved settings
+      const canvas = await html2canvas(tempElement, {
+        scale: 4,
         logging: false,
         useCORS: true,
+        allowTaint: true,
+        imageTimeout: 15000,
+        onclone: (clonedDoc) => {
+          // Additional image processing in the cloned document
+          const clonedImages = clonedDoc.querySelectorAll("img");
+          clonedImages.forEach((img) => {
+            img.style.maxWidth = "100%";
+            if (img.classList.contains("contact-icon")) {
+              img.style.width = "16px";
+              img.style.height = "16px";
+              img.style.minWidth = "16px";
+              img.style.minHeight = "16px";
+              img.style.objectFit = "contain";
+              img.style.display = "inline-block";
+              img.style.verticalAlign = "middle";
+            }
+          });
+        },
+      });
+
+      // Clean up the temporary element
+      document.body.removeChild(tempElement);
+
+      // Restore the links back to their original state in the original element
+      linkData.forEach(({ element, href, target, style, hasUnderline }) => {
+        if (href) element.setAttribute("href", href);
+        if (target) element.setAttribute("target", target);
+        if (style) element.setAttribute("style", style);
+        else if (hasUnderline) element.style.textDecoration = "underline";
       });
 
       // Calculate dimensions to fit the content properly
@@ -52,7 +121,16 @@ const usePDFDownload = ({ resumeRef }: UsePDFDownloadProps) => {
 
       // Add the image to the PDF
       const imgData = canvas.toDataURL("image/png");
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        0,
+        imgWidth,
+        imgHeight,
+        undefined,
+        "FAST"
+      );
 
       // Save the PDF
       pdf.save(`Joshua Ham - Resume - ${formattedDate}.pdf`);
