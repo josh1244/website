@@ -396,21 +396,59 @@ img {
 .pdf-button-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  gap: 16px;
+  margin: 20px auto 50px;
   width: 100%;
 }
 
 .pdf-button {
-  background-color: #0073b1;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
   font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.pdf-button:hover {
-  background-color: #005582;
+.button-icon {
+  margin-right: 6px;
+}
+
+.pdf-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.pdf-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-secondary {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.pdf-secondary:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

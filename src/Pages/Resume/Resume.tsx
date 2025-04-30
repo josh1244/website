@@ -16,10 +16,12 @@ import PDFButton from "./components/PDFButton";
 
 // Hooks
 import usePDFDownload from "./hooks/usePDFDownload";
+import useHTMLDownload from "./hooks/useHTMLDownload";
 
 const Resume: React.FC = () => {
   const resumeRef = useRef<HTMLDivElement>(null);
   const { handleDownloadPDF } = usePDFDownload({ resumeRef });
+  const { handleDownloadHTML } = useHTMLDownload({ resumeRef });
 
   return (
     <div className="resume-wrapper">
@@ -72,7 +74,10 @@ const Resume: React.FC = () => {
       </div>
 
       {/* Download the Resume as a PDF */}
-      <PDFButton onDownload={handleDownloadPDF} />
+      <PDFButton
+        onDownloadPDF={handleDownloadPDF}
+        onDownloadHTML={handleDownloadHTML}
+      />
     </div>
   );
 };
