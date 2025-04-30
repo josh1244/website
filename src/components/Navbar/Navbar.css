@@ -16,11 +16,40 @@ header {
   width: auto;
   max-width: 95%;
   -webkit-user-drag: none;
-  user-drag: none;
+  /* Added to prevent size jumping */
+  contain: layout style;
+  height: var(--header-height);
+  /* Fix preset dimensions to avoid layout shifts */
+  min-height: 64px;
+  box-sizing: border-box;
+  /* Fix for the user-drag error */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Growth amount variable (can be overridden) */
+  --growth-amount: 1.03;
+}
+
+/* Add a subtle grow animation */
+@keyframes navbarGrow {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(var(--growth-amount));
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+header.bounce {
+  animation: navbarGrow 0.4s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .header-content {
   height: var(--header-height);
+  min-height: 64px;
   width: fit-content;
   padding-inline: 1.5rem;
   display: flex;
@@ -28,7 +57,10 @@ header {
   justify-content: space-between;
   align-items: center;
   -webkit-user-drag: none;
-  user-drag: none;
+  /* Fix for the user-drag error */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .logo {
@@ -40,8 +72,14 @@ header {
   align-items: center;
   gap: 0.75rem;
   white-space: nowrap;
-  -webkit-user-drag: none;
-  user-drag: none;
+  /* Ensure logo link has a fixed height */
+  height: var(--header-height);
+  min-height: 64px;
+  min-width: 32px; /* Minimum width for the logo */
+  /* Fix for the user-drag error */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .logo-icon {
@@ -49,8 +87,10 @@ header {
   height: 32px;
   border-radius: 8px;
   display: block;
-  -webkit-user-drag: none;
-  user-drag: none;
+  /* Fix for the user-drag error */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Navigation */
@@ -61,12 +101,10 @@ nav ul {
   padding: 0;
   margin: 0;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 nav li {
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 nav a {
@@ -79,9 +117,13 @@ nav a {
   border-radius: 100px;
   white-space: nowrap;
   -webkit-user-drag: none;
-  user-drag: none;
-  pointer-events: auto;
-  draggable: false;
+  /* Make sure links have consistent dimensions regardless of active state */
+  display: inline-block;
+  box-sizing: border-box;
+  /* Fix for the user-drag error */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 nav a:hover {
@@ -93,6 +135,10 @@ nav a.active {
   color: var(--primary-color);
   background-color: rgba(0, 153, 255, 0.1);
   font-weight: 600;
+  /* Prevent size change due to font-weight difference */
+  font-variation-settings: "wght" 600;
+  /* Ensure no layout shift when font weight changes */
+  transform: translateZ(0);
 }
 
 /* Mobile responsive styles */
@@ -100,6 +146,9 @@ nav a.active {
   header {
     width: 95%;
     top: 0.5rem;
+    /* Maintain consistent height */
+    height: var(--header-height);
+    min-height: 64px;
   }
 
   .header-content {
@@ -125,6 +174,9 @@ nav a.active {
   header {
     width: 98%;
     border-radius: 16px;
+    /* Maintain consistent height */
+    height: var(--header-height);
+    min-height: 64px;
   }
 
   .logo span {

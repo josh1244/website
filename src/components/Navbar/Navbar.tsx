@@ -1,22 +1,71 @@
 // Navbar Component
 
 // Imports
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "./Navbar.css";
+import NavLinks from "./NavLinks";
+import NavLogo from "./NavLogo";
 
 const Navbar: React.FC = () => {
   // Check location to highlight active link
   const location = useLocation();
+  const [isAtTop, setIsAtTop] = useState(true);
+  const headerRef = useRef<HTMLElement>(null);
 
-  const isActive = (path: string) => {
-    if (path === "/") {
-      return location.pathname === "/";
+  // Track scroll position to determine if user is at the top of the page
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      setIsAtTop(window.scrollY < 10); // Consider "top" to be the first few pixels
+    };
+
+    // Check initial position
+    checkScrollPosition();
+
+    // Add scroll listener
+    window.addEventListener("scroll", checkScrollPosition);
+
+    // Clean up
+    return () => window.removeEventListener("scroll", checkScrollPosition);
+  }, []);
+
+  // Apply bounce animation when page changes
+  useEffect(() => {
+    if (headerRef.current) {
+      // Remove animation class if it exists
+      headerRef.current.classList.remove("bounce");
+
+      // Force a reflow to restart the animation
+      void headerRef.current.offsetWidth;
+
+      // Add the animation class
+      headerRef.current.classList.add("bounce");
+
+      // Remove the class after animation completes
+      const timer = setTimeout(() => {
+        if (headerRef.current) {
+          headerRef.current.classList.remove("bounce");
+        }
+      }, 400); // Match the new animation duration of 0.4s in CSS
+
+      return () => clearTimeout(timer);
     }
-    return location.pathname.includes(path);
+  }, [location.pathname]);
+
+  // Scroll to top when the route changes or when triggered manually
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
-  // Define the naviagation links
+  // Define the navigation links
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
@@ -25,33 +74,13 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <header>
+    <header ref={headerRef}>
       <div className="header-content">
         {/* Logo and Name */}
-        <Link to="/" className="logo">
-          <img
-            src="https://placehold.co/32x32/0099ff/ffffff?text=J"
-            alt="Logo"
-            className="logo-icon"
-          />
-          <span>Joshua Ham</span>
-        </Link>
+        <NavLogo isAtTop={isAtTop} scrollToTop={scrollToTop} />
 
         {/* Nav links */}
-        <nav>
-          <ul>
-            {navLinks.map((link) => (
-              <li key={link.to}>
-                <Link
-                  to={link.to}
-                  className={isActive(link.to) ? "active" : ""}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <NavLinks links={navLinks} />
       </div>
     </header>
   );
