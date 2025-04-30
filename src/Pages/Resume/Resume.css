@@ -145,7 +145,7 @@
 }
 
 /* Image styling to ensure proper inline display */
-img {
+.resume-container img {
   display: inline-block;
   vertical-align: middle;
   max-height: 20px;
