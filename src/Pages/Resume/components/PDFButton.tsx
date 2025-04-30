@@ -1,4 +1,4 @@
-// Download PDF Button
+// Download HTML Button
 // This is used in Resume.tsx and the hook does the downloading
 
 // Imports
@@ -12,7 +12,7 @@ const PDFButton: React.FC<PDFButtonProps> = ({ onDownload }) => {
   return (
     <div className="pdf-button-container">
       <button onClick={onDownload} className="pdf-button">
-        Open as PDF
+        Download HTML (for wkhtmltopdf)
       </button>
     </div>
   );

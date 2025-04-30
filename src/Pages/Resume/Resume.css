@@ -8,24 +8,32 @@
   background-color: white;
   font-family: "Lato", Arial, sans-serif;
   line-height: 1.4;
-  display: grid;
-  grid-template-columns: 3.05in auto;
-  gap: 0in;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
-  border-radius: 16px; /* Adding rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  border-radius: 16px; /* Add rounded corners */
+  display: table !important;
+  table-layout: fixed !important;
+  overflow: hidden; /* Prevent content from overflowing */
+  max-height: 11in; /* Ensure a maximum height */
 }
 
 .left-column {
-  grid-column: 1;
+  display: table-cell;
+  width: 3.05in;
+  height: 11in;
+  vertical-align: top;
   background-color: #f8f9fa;
   padding: 2.2rem 1.5rem 0 1.5rem;
-  border-radius: 0;
-  height: auto;
+  overflow: hidden; /* Prevent column content from overflowing */
 }
 
 .right-column {
-  grid-column: 2;
+  display: table-cell;
+  width: 4.45in;
+  height: 11in;
+  vertical-align: top;
   padding: 2rem 2rem 0 2rem;
+  background-color: white;
+  overflow: hidden; /* Prevent column content from overflowing */
 }
 
 .resume-header {
@@ -136,32 +144,29 @@
   line-height: 1.4 !important;
 }
 
+/* Image styling to ensure proper inline display */
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 20px;
+  width: auto;
+  margin: 0 4px;
+}
+
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.3rem;
 }
 
-.contact-item::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  width: 20px;
-}
-
-.contact-item.phone::before {
-  content: "📞";
-}
-
-.contact-item.email::before {
-  content: "✉️";
-}
-
-.contact-item.location::before {
-  content: "📍";
-}
-
-.contact-item.linkedin::before {
-  content: "🔗";
+.contact-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  object-fit: contain;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }
 
 .contact-item p {
@@ -301,9 +306,18 @@
   }
 
   body {
-    background: white;
     margin: 0;
     padding: 0;
+    width: 8.5in;
+    height: 11in;
+    background-color: white;
+  }
+
+  /* Ensure images display correctly in print */
+  img {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    position: relative !important;
   }
 
   @page {
