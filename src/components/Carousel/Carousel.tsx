@@ -27,6 +27,15 @@ const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<{[key: string]: boolean}>({});
+
+  // Handle image load event
+  const handleImageLoad = (src: string) => {
+    setLoadedImages(prev => ({
+      ...prev,
+      [src]: true
+    }));
+  };
 
   // Go to the next card
   // Only used by auto-rotation
@@ -139,7 +148,11 @@ const Carousel: React.FC<CarouselProps> = ({
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="carousel-image"
+                    className={`carousel-image ${
+                      loadedImages[item.image] ? "loaded" : "loading"
+                    }`}
+                    loading="lazy"
+                    onLoad={() => handleImageLoad(item.image)}
                   />
                 </div>
                 <div className="carousel-content">
