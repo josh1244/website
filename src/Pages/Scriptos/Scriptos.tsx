@@ -2,9 +2,92 @@ import React from "react";
 import Scriptos_Home from "./Scriptos Home.png";
 import Scriptos_Login from "./Scriptos Login.png";
 import USCCB_Logo from "./usccb.png";
+import AddUnit from "./Add Unit.png";
+import AddingComment from "./Adding Comment.png";
+import AddingTag from "./Adding Tag.png";
+import ApproveProposal from "./Approve Proposal.png";
+import Confirmatio from "./Confirmatio.png";
+import CreateProposal from "./Create Proposal.png";
+import Filters from "./Filters.png";
+import PublishReady from "./Publish Ready.png";
+import ReplyingComment from "./Replying to Comment.png";
+import Status from "./Status.png";
+import Summary from "./Summary.png";
+import Carousel, { CarouselItem } from "../../components/Carousel/Carousel";
 import "./Scriptos.css";
 
 const Scriptos: React.FC = () => {
+  // Carousel data with images and descriptions
+  const carouselData: CarouselItem[] = [
+    {
+      image: CreateProposal,
+      title: "A Publisher Creates A Proposal",
+      description:
+        "Publishers can easily create new proposals before completing manuscript.",
+    },
+    {
+      image: ApproveProposal,
+      title: "Consultants Approve A Proposal",
+      description:
+        "Consultants can review and approve proposals through a streamlined process.",
+    },
+    {
+      image: AddUnit,
+      title: "Publishers Add Units",
+      description:
+        "Add chapters/units one at a time. They can be added before completion of the manuscript.",
+    },
+    {
+      image: AddingComment,
+      title: "Adding Comments",
+      description:
+        "Consultants can leave detailed feedback on specific sections of manuscripts. Comments leave highlights in the document and quote the text.",
+    },
+    {
+      image: ReplyingComment,
+      title: "Replying to Comments",
+      description:
+        "Publishers can respond directly to consultant feedback for collaborative resolution. Comments appear in real time and work as threads.",
+    },
+    {
+      image: AddingTag,
+      title: "Adding Tags",
+      description:
+        "Tags reference the Bible, Catechism, or links and are linked to the comment.",
+    },
+    {
+      image: Filters,
+      title: "Filtering Options",
+      description:
+        "Advanced filtering allows users to quickly find relevant comments. They can search and filter by tags, status, user, and more.",
+    },
+    {
+      image: Status,
+      title: "Status Tracking",
+      description:
+        "Real-time status updates keep all parties informed of a documents's progress. Each comment tracks its status, and the document tracks its overall status.",
+    },
+    {
+      image: PublishReady,
+      title: "Resolving Comments",
+      description:
+        "When approved, parts of the document can be marked as ready for publication.",
+    },
+    {
+      image: Summary,
+      title: "Consultant Writes A Summary Of A Project",
+      description:
+        "Upon the completion of all the chapters/units, a consultant writes a summary of the project for the bishop.",
+    },
+
+    {
+      image: Confirmatio,
+      title: "Confirmatio",
+      description:
+        "The bishop can approve or reject the summary. If approved, the document is ready for publication with a Digital Declaration of Conformity.",
+    },
+  ];
+
   return (
     <div className="container">
       {/* Banner Section */}
@@ -191,8 +274,9 @@ const Scriptos: React.FC = () => {
           <span className="tech-tag">React</span>
           <span className="tech-tag">Material UI</span>
           <span className="tech-tag">Azure</span>
-          <span className="tech-tag">PDF Processing</span>
           <span className="tech-tag">MVC Architecture</span>
+          <span className="tech-tag">PDF Processing</span>
+          <span className="tech-tag">Email Integration</span>
           <span className="tech-tag">CI/CD</span>
           <span className="tech-tag">ReCaptcha</span>
         </div>
@@ -211,6 +295,14 @@ const Scriptos: React.FC = () => {
           <img src={Scriptos_Login} alt="Scriptos Login Screen" />
         </div>
       </div>
+
+      {/* Feature Carousel Section */}
+      <Carousel
+        items={carouselData}
+        autoRotateInterval={60000}
+        title="Feature Showcase"
+        description="Explore the key features of Scriptos:"
+      />
 
       {/* Client Section */}
       <div className="client-section">
