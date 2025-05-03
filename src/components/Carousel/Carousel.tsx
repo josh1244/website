@@ -17,6 +17,7 @@ interface CarouselProps {
   autoRotateInterval?: number;
   title?: string;
   description?: string;
+  isImageOnlyMode?: boolean; // New prop to toggle image-only mode
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -24,16 +25,19 @@ const Carousel: React.FC<CarouselProps> = ({
   autoRotateInterval = 5000,
   title = "Feature Showcase",
   description = "Explore the key features of the application:",
+  isImageOnlyMode = false, // Default to false
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [loadedImages, setLoadedImages] = useState<{[key: string]: boolean}>({});
+  const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   // Handle image load event
   const handleImageLoad = (src: string) => {
-    setLoadedImages(prev => ({
+    setLoadedImages((prev) => ({
       ...prev,
-      [src]: true
+      [src]: true,
     }));
   };
 
@@ -120,8 +124,12 @@ const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <div className="feature-showcase-background">
-      <h2 className="feature-showcase-title">{title}</h2>
-      <p className="feature-showcase-description">{description}</p>
+      {!isImageOnlyMode && (
+        <>
+          <h2 className="feature-showcase-title">{title}</h2>
+          <p className="feature-showcase-description">{description}</p>
+        </>
+      )}
 
       {/* Contains the cards */}
       <div className="carousel-container">
@@ -133,36 +141,71 @@ const Carousel: React.FC<CarouselProps> = ({
             const shouldRender = Math.abs(position) <= 3;
             if (!shouldRender) return null;
 
-            return (
-              <div
-                key={index}
-                className={`carousel-card ${className}`}
-                style={{
-                  transform: getCardTransform(position),
-                  zIndex: 10 - Math.abs(position),
-                  transition: "all 0.5s ease",
-                }}
-                onClick={() => handleCardClick(index)}
-              >
-                <div className="carousel-image-container">
+            if (isImageOnlyMode) {
+              return (
+                <div
+                  key={index}
+                  className={`carousel-card background ${className}`}
+                  style={{
+                    transform: getCardTransform(position),
+                    zIndex: 10 - Math.abs(position),
+                    transition: "all 0.5s ease",
+                  }}
+                  onClick={() => handleCardClick(index)}
+                >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className={`carousel-image ${
+                    className={`carousel-background-image ${
                       loadedImages[item.image] ? "loaded" : "loading"
                     }`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      zIndex: -1,
+                    }}
                     loading="lazy"
                     onLoad={() => handleImageLoad(item.image)}
                   />
                 </div>
-                <div className="carousel-content">
-                  <h4>{item.title}</h4>
+              );
+            } else {
+              return (
+                <div
+                  key={index}
+                  className={`carousel-card ${className}`}
+                  style={{
+                    transform: getCardTransform(position),
+                    zIndex: 10 - Math.abs(position),
+                    transition: "all 0.5s ease",
+                  }}
+                  onClick={() => handleCardClick(index)}
+                >
+                  <div className="carousel-image-container">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={`carousel-image ${
+                        loadedImages[item.image] ? "loaded" : "loading"
+                      }`}
+                      loading="lazy"
+                      onLoad={() => handleImageLoad(item.image)}
+                    />
+                  </div>
 
-                  {/* Only show the description on the active card. */}
-                  {position === 0 && <p>{item.description}</p>}
+                  <div className="carousel-content">
+                    <h4>{item.title}</h4>
+
+                    {/* Only show the description on the active card. */}
+                    {position === 0 && <p>{item.description}</p>}
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            }
           })}
         </div>
       </div>
