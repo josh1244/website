@@ -29,26 +29,6 @@ const Contact: React.FC = () => {
       <div className="contact-info">
         <h2>Contact Information</h2>
         <div
-          className={`info-item ${copiedText === "phone" ? "copied" : ""}`}
-          onClick={() => copyToClipboard("571-260-7117", "phone")}
-        >
-          <span className="contact-icon">📱</span>
-          <p>571-260-7117</p>
-          {copiedText === "phone" && (
-            <span className="copied-tooltip">Copied!</span>
-          )}
-        </div>
-        <div
-          className={`info-item ${copiedText === "email" ? "copied" : ""}`}
-          onClick={() => copyToClipboard("JoshuaSwainHam@proton.me", "email")}
-        >
-          <span className="contact-icon">✉️</span>
-          <p>JoshuaSwainHam@proton.me</p>
-          {copiedText === "email" && (
-            <span className="copied-tooltip">Copied!</span>
-          )}
-        </div>
-        <div
           className={`info-item ${copiedText === "linkedin" ? "copied" : ""}`}
           onClick={() =>
             copyToClipboard("https://linkedin.com/in/joshuaham", "linkedin")
